@@ -6,6 +6,8 @@ int product(int num1, int num2){
 }
 
 int main() {
-     cout<<product(3,5)<<endl;
+    int num1, num2;
+    cin>>num1>>num2;
+    cout<<product(num1, num2)<<endl;
     return 0;
 }
