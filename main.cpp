@@ -1,13 +1,14 @@
 #include <iostream>
 using namespace std;
 
-int product(int num1, int num2){
-    return num1*num2;
+int product(int num11, int num12){
+    return num11*num12;
 }
 
 int main() {
-    int num1, num2;
-    cin>>num1>>num2;
-    cout<<product(num1, num2)<<endl;
+    cout<<"Problem 1\n";
+    int num11, num12;
+    cin>>num11>>num12;
+    cout<<product(num11, num12)<<endl;
     return 0;
 }
