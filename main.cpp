@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 int product(int num11, int num12){
@@ -41,7 +42,7 @@ int Factorial(int num61){
 
 
 int main() {
-    
+
     cout<<"Problem 1\n";
     int num11, num12;
     cin>>num11>>num12;
@@ -79,12 +80,12 @@ int main() {
         cout<<Factorial(num62)<<endl;
     }
 
-    
 
-    
 
-    
 
-    
+
+
+
+
     return 0;
 }
