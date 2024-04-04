@@ -254,6 +254,12 @@ string convertMillis(long millis){
 }
 
 
+double area(int n, double side){
+    double Area=(n*pow(side, 2))/(4* tan(pi/n));
+    return Area;
+}
+
+
 
 
 
@@ -445,6 +451,29 @@ int main() {
     int minutes21=seconds21/60;
     seconds21=seconds21%60;
     cout<<"Current date and time is "<<month21<<" "<<days<<", "<<year21<<" "<<hours21+5<<":"<<minutes21<<":"<<seconds21<<endl;
+
+
+    cout<<"Problem 22\n";
+    int n22;
+    double side22=0;
+    cin>>n22>>side22;
+    cout<<"The area is "<<area(n22, side22);
+
+
+
+    cout<<"Problem 23\n";
+    int dice1=rand()%6+1;
+    int dice2=rand()%6+1;
+    int point=dice1+dice2;
+    cout<<"You rolled "<<dice1<<"+"<<dice2<<"="<<point<<endl;
+    if (point==7 or point == 11){
+        cout<<"You lose"<<endl;
+    } else if ( point == 2 or point == 3 or point ==12){
+        cout<<"You win"<<endl;
+    } else{
+        cout<<"point is "<<point<<endl;
+    }
+
 
 
     
