@@ -157,15 +157,6 @@ void printMatrix(int n16){
 }
 
 
-bool isPalindrome(int n17){
-    int rev=0;
-    int ori=n17;
-    while (n17>0){
-        rev=rev*10+(n17%10);
-        n17=int(n17/10);
-    }
-    return ori==rev;
-}
 
 
 double pi=3.1415;
@@ -278,20 +269,6 @@ bool isPalindrome(int n){
     }
     return rev==ori;
 
-
-}
-
-int isPrime(int n){
-    int div=2;
-    bool flag= true;
-    while (div<=sqrt(n)){
-        if (n%div==0){
-            flag=false;
-        }
-        div++;
-
-    }
-    return flag;
 
 }
 
@@ -424,11 +401,11 @@ int main() {
     isArmstrong(cubeOfDigits(number12), number12);
 
     cout<<"Problem 14\n";
-     double investmentAmount, monthlyInterestRate;
-     cin>>investmentAmount>>monthlyInterestRate;
-     for (int c14=1; c14<31; c14++){
-         cout<<"The future value for year "<<c14<<" is: "<<futureInvestmentValue(investmentAmount, monthlyInterestRate, c14)<<endl;
-     }
+    double investmentAmount, monthlyInterestRate;
+    cin>>investmentAmount>>monthlyInterestRate;
+    for (int c14=1; c14<31; c14++){
+        cout<<"The future value for year "<<c14<<" is: "<<futureInvestmentValue(investmentAmount, monthlyInterestRate, c14)<<endl;
+    }
 
     cout<<"Problem 15\n";
     printASCII('a', 'm', 6);
@@ -595,30 +572,30 @@ int main() {
 
 
 
-    
 
 
-    
 
 
-    
 
 
-    
-    
-
-    
-
-    
-
-    
 
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
