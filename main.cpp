@@ -83,7 +83,7 @@ float product(float num91, float num92){
 }
 float division(float num91, float num92){
     return num91/num92;
-
+};
 
 int getTriangularNumber(int n){
     return (n*(n+1))/2;
