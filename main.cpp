@@ -1,5 +1,9 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
+#include <random>
+#include <iomanip>
+#include <string>
+#include <ctime>
 using namespace std;
 
 int product(int num11, int num12){
@@ -106,6 +110,151 @@ void displayEven(int num111){
     }
 }
 
+int cubeOfDigits(int number12){
+    int sum12=0;
+    while (number12>0){
+        sum12+=pow(number12%10, 3);
+        number12=int(number12/10);
+    }
+    return sum12;
+}
+void isArmstrong(int sum12, int number12){
+    if (sum12==number12){
+        cout<<"The number is Armstrong"<<endl;
+    } else{
+        cout<<"Not an Armstrong number"<<endl;
+    }
+}
+
+double futureInvestmentValue(double investmentAmount, double monthlyInterestRate, int years14){
+    return investmentAmount*pow(1+monthlyInterestRate/100, years14*12);
+}
+
+void printASCII(char ch1, char ch2, int numberPerLine){
+    int start15=int(ch1);
+    int final15=int(ch2);
+    int counter=1;
+    while (start15<=final15){
+        if (counter%numberPerLine==0){
+            cout<<char(start15)<<endl;
+        } else{
+            cout<<char(start15)<<' ';
+        }
+        start15++;
+        counter++;
+    }
+}
+
+
+void printMatrix(int n16){
+    int ch16=n16;
+    for (int c16=0; c16<n16; c16++){
+        for (int c162=0; c162<ch16; c162++){
+            cout<<rand()%1000<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+
+bool isPalindrome(int n17){
+    int rev=0;
+    int ori=n17;
+    while (n17>0){
+        rev=rev*10+(n17%10);
+        n17=int(n17/10);
+    }
+    return ori==rev;
+}
+
+
+double pi=3.1415;
+double e=2.7182;
+
+double seriesA(int n){
+    double sum=0;
+    int i=1;
+    while (i<=n){
+        sum=sum+pi*pow(2, (-1)*i);
+        i+=1;
+    }
+    return sum;
+}
+
+double seriesB(int n){
+    double pro=1;
+    int i=1;
+    while (i<=n){
+        pro*=(pi/2)*pow(i, e);
+        i++;
+    }
+    return pro;
+}
+
+double seriesC(int n){
+    double sum=0;
+    int i=1;
+    while (i<=n){
+        sum+=(pow(-2,i))/(2*pi+i);
+        i++;
+    }
+    return sum;
+}
+
+double seriesD(int n){
+    double sum=0;
+    int i=1;
+    while (i<=n){
+        sum+=2*i*pi/(pow(e, i));
+        i++;
+    }
+    return sqrt(sum);
+}
+
+
+void displaySordetedNumber(double a, double b, double c){
+    if (a>b and a>c){
+        if (b>c){
+            cout<<c<<" "<<b<<" "<<a<<endl;
+        } else{
+            cout<<b<<" "<<c<<" "<<a<<endl;
+        }
+    } else if (b>c){
+        if (a>c){
+            cout<<c<<" "<<a<<" "<<b<<endl;
+        } else{
+            cout<<a<<" "<<c<<" "<<b<<endl;
+        }
+    } else{
+        if (a>b){
+            cout<<b<<" "<<a<<" "<<c<<endl;
+        } else{
+            cout<<a<<" "<<b<<" "<<c<<endl;
+        }
+    }
+}
+
+
+string convertMillis(long millis){
+    int seconds, minutes, hours;
+    hours=millis/3600000;
+    if (hours>=1){
+        millis=millis%3600000;
+    }
+    minutes=millis/60000;
+    if (minutes>=1){
+        millis=millis%60000;
+    }
+    seconds=millis/1000;
+    string hour= to_string(hours);
+    string minute= to_string(minutes);
+    string second= to_string(seconds);
+
+    return hour+":"+minute+":"+second;
+}
+
+
+
 
 
 int main() {
@@ -181,6 +330,140 @@ int main() {
     int num111;
     cin>>num111;
     displayEven(num111);
+
+
+    cout<<"Problem 12\n";
+    int number12;
+    cin>>number12;
+    isArmstrong(cubeOfDigits(number12), number12);
+
+    cout<<"Problem 14\n";
+     double investmentAmount, monthlyInterestRate;
+     cin>>investmentAmount>>monthlyInterestRate;
+     for (int c14=1; c14<31; c14++){
+         cout<<"The future value for year "<<c14<<" is: "<<futureInvestmentValue(investmentAmount, monthlyInterestRate, c14)<<endl;
+     }
+
+    cout<<"Problem 15\n";
+    printASCII('a', 'm', 6);
+
+
+    cout<<"Problem 16\n";
+    int n16;
+    cin>>n16;
+    printMatrix(n16);
+
+    cout<<"Problem 17\n";
+    int c17=0;
+    int n17=2;
+    while (c17<50){
+        if (isPalindrome(n17) and n17%2==0){
+            if ((c17+1)%5==0){
+                cout<<setw(5)<<n17<<endl;
+            } else{
+                cout<<setw(5)<<n17<<" ";
+            }
+            c17++;
+        }
+        n17++;
+    }
+
+
+    cout<<"Problem 19\n";
+    double a19, b19, c19;
+    cin>>a19>>b19>>c19;
+    displaySordetedNumber(a19, b19, c19);
+
+
+    cout<<"Problem 20\n";
+    long millis=0;
+    cin>>millis;
+    cout<<convertMillis(millis)<<endl;
+
+    cout<<"Problem 21\n";
+    int ctime=time(0);
+    int days=ctime/86400;
+    int year21=1970;
+    while (days>365){
+        if (days-365>0){
+            year21+=1;
+        }
+        if (year21%4==1){
+            days-=1;
+        };
+        days-=365;
+    }
+
+    string month21="January";
+    if (days-31>0){
+        month21="February";
+        days=days-31;
+        if (days-28>0){
+            month21="March";
+            days-=28;
+            if (days-31>0){
+                month21="April";
+                days-=31;
+                if (days-30>0){
+                    month21="May";
+                    days-=30;
+                    if(days-31>0){
+                        month21="June";
+                        days-=31;
+                        if (days-30>0){
+                            month21="July";
+                            days-=30;
+                            if (days-31>0){
+                                month21="August";
+                                days-=31;
+                                if (days-31>0){
+                                    month21="September";
+                                    days-=31;
+                                    if(days-30>0){
+                                        month21="October";
+                                        days-=30;
+                                        if(days-31){
+                                            month21="November";
+                                            days-=31;
+                                            if(days-30>0){
+                                                month21="December";
+                                                days-=30;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    int seconds21=ctime%86400;
+    int hours21=seconds21/3600;
+    seconds21=seconds21%3600;
+    int minutes21=seconds21/60;
+    seconds21=seconds21%60;
+    cout<<"Current date and time is "<<month21<<" "<<days<<", "<<year21<<" "<<hours21+5<<":"<<minutes21<<":"<<seconds21<<endl;
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+    
+
+    
+
+    
+
+    
 
 
     
