@@ -260,6 +260,86 @@ double area(int n, double side){
 }
 
 
+int Palindrome(int n) {
+    int rev = 0;
+    while (n > 0) {
+        rev = rev * 10 + n % 10;
+        n = n / 10;
+    }
+    return rev;
+}
+
+bool isPalindrome(int n){
+    int rev=0;
+    int ori=n;
+    while (n>0){
+        rev=rev*10+n%10;
+        n=n/10;
+    }
+    return rev==ori;
+
+
+}
+
+int isPrime(int n){
+    int div=2;
+    bool flag= true;
+    while (div<=sqrt(n)){
+        if (n%div==0){
+            flag=false;
+        }
+        div++;
+
+    }
+    return flag;
+
+}
+
+
+int sumOfDigits(int n){
+    int sum=0;
+    while (n>0){
+        sum+=n%10;
+        n=n/10;
+    }
+    return sum;
+}
+
+int isPrime(int n){
+    int div=2;
+    bool flag= true;
+    while (div<=sqrt(n)){
+        if (n%div==0){
+            flag=false;
+        }
+        div++;
+
+    }
+    return flag;
+
+}
+
+
+double bin2Octal(int binary){
+    int dec=0;
+    int c26=0;
+    while (binary>0){
+        dec=dec+binary%10*pow(2, c26);
+        c26++;
+        binary/=10;
+    }
+
+    int oct=0;
+    int ch24=0;
+    while (dec>0){
+        oct=oct+dec%8*pow(10, ch24);
+        dec=dec/8;
+        ch24++;
+    }
+
+    return oct;
+}
+
 
 
 
@@ -473,6 +553,45 @@ int main() {
     } else{
         cout<<"point is "<<point<<endl;
     }
+
+
+    cout<<"Problem 24\n";
+
+    int c24=1;
+    int ch24=13;
+    while (c24<=100){
+
+        if (isPrime(ch24) and isPrime(Palindrome(ch24)) and not(isPalindrome(ch24))){
+            if (c24%10==0){
+                cout<<setw(5)<<ch24<<endl;
+            } else{
+                cout<<setw(5)<<ch24<<" ";
+            }
+
+
+            c24++;
+        }
+        ch24++;
+    }
+
+
+    cout<<"Problem 25\n";
+    int c25=0;
+    int ch25=2;
+    while (c25<25){
+        if (isPrime(ch25) and isPrime(sumOfDigits(ch25))){
+            cout<<setw(3)<<ch25<<setw(10)<<sumOfDigits(ch25)<<endl;
+            c25++;
+        }
+        ch25++;
+    }
+
+
+    cout<<"Problem 26\n";
+
+    string n26="";
+    cin>>n26;
+    cout<<bin2Octal(stoi(n26))<<endl;
 
 
 
